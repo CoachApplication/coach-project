@@ -1,9 +1,9 @@
 package project
 
 import (
-	api "github.com/CoachApplication/coach-api"
-	base "github.com/CoachApplication/coach-base"
-	base_props "github.com/CoachApplication/coach-base/property"
+	api "github.com/CoachApplication/api"
+	base "github.com/CoachApplication/base"
+	base_props "github.com/CoachApplication/base/property"
 )
 
 const (
