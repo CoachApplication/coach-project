@@ -36,8 +36,9 @@ env:
   three: 3
 `)
 
+// Generate a YamlConfig with a buffered string connector, so that we can test the marshalling on it.
 func MakeTestYamlConfig(t *testing.T, b []byte) config.Config {
-	return yaml.NewConfig("key", "scope", buffered.NewConnector("key", "scope", b)).Config()
+	return yaml.NewConfig("key", "scope", buffered.NewSingle("key", "scope", b)).Config()
 }
 
 func TestProject_Get_Yaml(t *testing.T) {
