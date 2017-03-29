@@ -1,9 +1,15 @@
 package configwrapper
 
+import "github.com/CoachApplication/project"
+
 type ConfigProject struct {
 	N string            `yaml:"name"`
 	L string            `yaml:"label"`
 	E map[string]string `yaml:"env"`
+}
+
+func (cp *ConfigProject) Project() project.Project {
+	return project.Project(cp)
 }
 
 func (cp *ConfigProject) Merge(m ConfigProject) {

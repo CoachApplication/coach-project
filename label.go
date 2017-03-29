@@ -53,7 +53,7 @@ func (lo *LabelOperation) Exec(props api.Properties) api.Result {
 
 	go func(fac Factory) {
 		p := fac.Project()
-		n := p.Name()
+		n := p.Label()
 
 		lp := (&LabelProperty{}).Property()
 		lp.Set(n)

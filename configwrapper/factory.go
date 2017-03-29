@@ -42,5 +42,5 @@ func (f *Factory) Project() project.Project {
 			}
 		}
 	}
-	return f.p
+	return f.p.Project()
 }
