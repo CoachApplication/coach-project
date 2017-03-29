@@ -19,6 +19,10 @@ type NameProperty struct {
 	base_props.StringProperty
 }
 
+func (np *NameProperty) Property() api.Property {
+	return api.Property(np)
+}
+
 func (np *NameProperty) Id() string {
 	return PROPERTY_ID_NAME
 }
@@ -38,6 +42,10 @@ func (np *NameProperty) Usage() api.Usage {
 
 type LabelProperty struct {
 	base_props.StringProperty
+}
+
+func (lp *LabelProperty) Property() api.Property {
+	return api.Property(lp)
 }
 
 func (lp *LabelProperty) Id() string {
@@ -61,6 +69,10 @@ type EnvironmentMapProperty struct {
 	base_props.StringMapProperty
 }
 
+func (emmp *EnvironmentMapProperty) Property() api.Property {
+	return api.Property(emmp)
+}
+
 func (emmp *EnvironmentMapProperty) Id() string {
 	return PROPERTY_ID_ENV_MAP
 }
@@ -82,6 +94,10 @@ type EnvironmentMapKeyProperty struct {
 	base_props.StringProperty
 }
 
+func (emkp *EnvironmentMapKeyProperty) Property() api.Property {
+	return api.Property(emkp)
+}
+
 func (emkp *EnvironmentMapKeyProperty) Id() string {
 	return PROPERTY_ID_ENV_KEY
 }
@@ -89,18 +105,22 @@ func (emkp *EnvironmentMapKeyProperty) Id() string {
 func (emkp *EnvironmentMapKeyProperty) Ui() api.Ui {
 	return base.NewUi(
 		emkp.Id(),
-		"Project environment value",
-		"A single environment map value form the environment map",
+		"Project environment key",
+		"A single key from the environment map",
 		"",
 	)
 }
 
 func (emkp *EnvironmentMapKeyProperty) Usage() api.Usage {
-	return base.ReadonlyPropertyUsage{}
+	return base.RequiredPropertyUsage{}
 }
 
 type EnvironmentMapKeysProperty struct {
 	base_props.StringSliceProperty
+}
+
+func (emkp *EnvironmentMapKeysProperty) Property() api.Property {
+	return api.Property(emkp)
 }
 
 func (emkp *EnvironmentMapKeysProperty) Id() string {
@@ -110,8 +130,8 @@ func (emkp *EnvironmentMapKeysProperty) Id() string {
 func (emkp *EnvironmentMapKeysProperty) Ui() api.Ui {
 	return base.NewUi(
 		emkp.Id(),
-		"Project environment value",
-		"A single environment map value form the environment map",
+		"Project environment keys",
+		"A list of keys from the environment map",
 		"",
 	)
 }
@@ -122,6 +142,10 @@ func (emkp *EnvironmentMapKeysProperty) Usage() api.Usage {
 
 type EnvironmentMapValueProperty struct {
 	base_props.StringProperty
+}
+
+func (emvp *EnvironmentMapValueProperty) Property() api.Property {
+	return api.Property(emvp)
 }
 
 func (emvp *EnvironmentMapValueProperty) Id() string {

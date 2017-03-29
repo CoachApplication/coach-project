@@ -1,13 +1,23 @@
 package configwrapper
 
 import (
-	api "github.com/CoachApplication/api"
-	base "github.com/CoachApplication/base"
-	config "github.com/CoachApplication/config"
+	"github.com/CoachApplication/api"
+	"github.com/CoachApplication/base"
+	"github.com/CoachApplication/config"
+	"github.com/CoachApplication/project"
 )
 
-func MakeOperations(cw config.Wrapper) api.Operations {
+func MakeOperations(wr config.Wrapper) api.Operations {
 	ops := base.NewOperations()
+
+	base := project.NewFactoryOperationBase(NewFactory(wr))
+
+	ops.Add(project.NewNameOperation(*base).Operation())
+	ops.Add(project.NewLabelOperation(*base).Operation())
+
+	ops.Add(project.NewEnvironmentGetOperation(*base).Operation())
+	ops.Add(project.NewEnvironmentListOperation(*base).Operation())
+	ops.Add(project.NewEnvironmentMapOperation(*base).Operation())
 
 	return ops.Operations()
 }
