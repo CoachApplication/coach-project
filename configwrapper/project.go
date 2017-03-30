@@ -2,6 +2,7 @@ package configwrapper
 
 import "github.com/CoachApplication/project"
 
+// ConfigProject a Project object that
 type ConfigProject struct {
 	N string            `yaml:"name"`
 	L string            `yaml:"label"`
