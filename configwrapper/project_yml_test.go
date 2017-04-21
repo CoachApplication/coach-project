@@ -2,12 +2,13 @@ package configwrapper_test
 
 import (
 	"context"
+	"testing"
+	"time"
+
 	"github.com/CoachApplication/config"
 	"github.com/CoachApplication/config/provider/buffered"
 	"github.com/CoachApplication/config/provider/yaml"
 	"github.com/CoachApplication/project/configwrapper"
-	"testing"
-	"time"
 )
 
 /**
